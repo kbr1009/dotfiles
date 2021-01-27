@@ -1,0 +1,11 @@
+2021-01-17 23:27:19,237 DEBUG    root            Loaded Command Group: ['gcloud', 'components']
+2021-01-17 23:27:19,244 DEBUG    root            Loaded Command Group: ['gcloud', 'components', 'update']
+2021-01-17 23:27:19,249 DEBUG    root            Running [gcloud.components.update] with arguments: [--quiet: "True"]
+2021-01-17 23:27:19,260 INFO     ___FILE_ONLY___ Beginning update. This process may take several minutes.
+
+2021-01-17 23:27:19,835 INFO     ___FILE_ONLY___ 
+
+2021-01-17 23:27:19,835 INFO     ___FILE_ONLY___ All components are up to date.
+
+2021-01-17 23:27:19,836 DEBUG    root            Updating notification cache...
+2021-01-17 23:27:19,838 INFO     root            Display format: "none"

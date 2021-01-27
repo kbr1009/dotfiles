@@ -1,0 +1,36 @@
+2021-01-17 23:27:19,648 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2021-01-17 23:27:19,650 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'application_default']
+2021-01-17 23:27:19,695 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'application-default', 'print_access_token']
+2021-01-17 23:27:19,699 DEBUG    root            Running [gcloud.auth.application-default.print-access-token] with arguments: [--quiet: "True"]
+2021-01-17 23:27:19,700 DEBUG    google.auth.transport._http_client Making request: GET http://169.254.169.254
+2021-01-17 23:27:19,701 INFO     google.auth.compute_engine._metadata Compute Engine Metadata server unavailable onattempt 1 of 3
+2021-01-17 23:27:19,701 DEBUG    google.auth.transport._http_client Making request: GET http://169.254.169.254
+2021-01-17 23:27:19,701 INFO     google.auth.compute_engine._metadata Compute Engine Metadata server unavailable onattempt 2 of 3
+2021-01-17 23:27:19,702 DEBUG    google.auth.transport._http_client Making request: GET http://169.254.169.254
+2021-01-17 23:27:19,702 INFO     google.auth.compute_engine._metadata Compute Engine Metadata server unavailable onattempt 3 of 3
+2021-01-17 23:27:19,702 DEBUG    root            Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+Traceback (most recent call last):
+  File "/Users/reokobayashi/Library/Application Support/cloud-code/installer/google-cloud-sdk/lib/surface/auth/application_default/print_access_token.py", line 75, in Run
+    creds, _ = google_auth_default.default(
+  File "/Users/reokobayashi/Library/Application Support/cloud-code/installer/google-cloud-sdk/lib/third_party/google/auth/_default.py", line 328, in default
+    raise exceptions.DefaultCredentialsError(_HELP_MESSAGE)
+google.auth.exceptions.DefaultCredentialsError: Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+2021-01-17 23:27:19,719 DEBUG    root            (gcloud.auth.application-default.print-access-token) Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+Traceback (most recent call last):
+  File "/Users/reokobayashi/Library/Application Support/cloud-code/installer/google-cloud-sdk/lib/surface/auth/application_default/print_access_token.py", line 75, in Run
+    creds, _ = google_auth_default.default(
+  File "/Users/reokobayashi/Library/Application Support/cloud-code/installer/google-cloud-sdk/lib/third_party/google/auth/_default.py", line 328, in default
+    raise exceptions.DefaultCredentialsError(_HELP_MESSAGE)
+google.auth.exceptions.DefaultCredentialsError: Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/reokobayashi/Library/Application Support/cloud-code/installer/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 982, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+  File "/Users/reokobayashi/Library/Application Support/cloud-code/installer/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 809, in Run
+    resources = command_instance.Run(args)
+  File "/Users/reokobayashi/Library/Application Support/cloud-code/installer/google-cloud-sdk/lib/surface/auth/application_default/print_access_token.py", line 79, in Run
+    raise c_exc.ToolException(six.text_type(e))
+googlecloudsdk.calliope.exceptions.ToolException: Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+2021-01-17 23:27:19,721 ERROR    root            (gcloud.auth.application-default.print-access-token) Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
