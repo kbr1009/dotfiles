@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+/Users/reokobayashi/.config/coc/extensions/coc-java-data/jdt_ws_61d8d40f200f756cbeb7127396a6fd48/.metadata/.plugins/org.eclipse.jdt.core
-2509116566.index
-3842426239.index
