@@ -112,12 +112,12 @@ hi VertSplit guibg=NONE
 hi Special guibg=NONE
 hi Identifier guibg=NONE
 
-if !has('gui_running') && $TMUX !=# ''
-    augroup Tmux
-        autocmd!
-        autocmd VimEnter,VimLeave * silent !tmux set status
-    augroup END
-endif
+"if !has('gui_running') && $TMUX !=# ''
+"    augroup Tmux
+"        autocmd!
+"        autocmd VimEnter,VimLeave * silent !tmux set status
+"    augroup END
+"endif
 
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>
