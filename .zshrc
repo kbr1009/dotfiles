@@ -5,6 +5,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 alias python=python3
+alias pip=pip3
 
 #golang
 export GOPATH=$HOME/.go
