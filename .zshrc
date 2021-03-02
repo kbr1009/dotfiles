@@ -1,18 +1,16 @@
-#If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
+
+#python
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 alias python=python3
 alias pip=pip3
 
-#golang
-export GOPATH=$HOME/.go
-export GOROOT="/usr/local/opt/go/libexec"
-export PATH=$PATH:$GOROOT/bin
-export GO111MODULE=on 
-#goenv
+
+#golang,goenv
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
@@ -20,7 +18,6 @@ export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 alias vim='nvim'
 
 export ZSH_DISABLE_COMPFIX=true
@@ -30,22 +27,10 @@ export ZSH="/Users/reokobayashi/.oh-my-zsh"
 
 # mycliコマンド追加
 export LESS="-XFR"
-#export LESS="-SRXF"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-
-#ZSH_THEME="susi"
 
 ZSH_THEME="robbyrussell"
 
-#POWERLEVEL9K_MODE="nerdfont-complete"
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 
 POWERLEVEL9K_CUSTOM_PYTHON="echo -n '\uf81f' Python"
 POWERLEVEL9K_CUSTOM_PYTHON_FOREGROUND="black"
@@ -138,4 +123,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
