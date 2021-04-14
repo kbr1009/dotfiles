@@ -112,3 +112,9 @@ repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'

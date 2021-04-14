@@ -1,137 +1,127 @@
-lexima.vim
-==========
-[![Build Status](https://travis-ci.org/cohama/lexima.vim.svg)](https://travis-ci.org/cohama/lexima.vim)
+# vim-jsx-pretty
 
-Auto close parentheses and repeat by dot dot dot...
+The React syntax highlighting and indenting plugin for vim. Also supports the typescript tsx file.
 
-Basically, you can automatically close pairs such as `()`, `{}`, `""`, ...
-But in advance, you can also customize the rule to automatically input
-any character on any context.
+## Features
 
-Screen Shots
------------
-![Screen Shot](http://i.gyazo.com/af2d7a59c82f93e49a6fd424dbbf6f88.gif)
+- 📦 Support JSX highlighting and indenting out of the box. No dependencies.
+- 💯 Fully implemented the JSX syntax specification. [https://github.com/facebook/jsx](https://github.com/facebook/jsx)
+- ✨ Support React syntax highlighting and indenting for JSX and typescript TSX files.
+- 🏷 Support JSX syntax highlighting and indenting inside the [tagged template](https://github.com/developit/htm) string.
+- 🎨 Support highlighting the close tag separately from the open tag (set `let g:vim_jsx_pretty_highlight_close_tag = 1` in your vimrc).
+- 💪 Many more [corner test cases](test.jsx) covered.
+- 💅 [Reasonable syntax highlight groups](#syntax-group-list), easy for customization.
+
+## Demo
+
+### Syntax
+
+|vim-jsx-pretty<br />(add colorful config)|vim-jsx-pretty|
+|---|---|
+|![vim-jsx-pretty colorful](https://raw.githubusercontent.com/MaxMEllon/demos/master/vim-jsx-pretty/vim-jsx-pretty-colorful.png)|![vim-jsx-pretty](https://raw.githubusercontent.com/MaxMEllon/demos/master/vim-jsx-pretty/vim-jsx-pretty.png)|
+
+### Auto indent
+
+![Auto indent demo](https://raw.githubusercontent.com/MaxMEllon/demos/master/vim-jsx-pretty/auto-indent.gif)
+
+### Support typescript
+
+![typescript demo](https://user-images.githubusercontent.com/9594376/32855974-beb2432a-ca86-11e7-99a4-85c2630aa5d5.png)
+
+## Installation
+
+### vim-plug [https://github.com/junegunn/vim-plug](https://github.com/junegunn/vim-plug)
+
+your `~/.vimrc`:
+
+- No dependencies
+
+    ```vim
+    Plug 'maxmellon/vim-jsx-pretty'
+    ```
+
+- with: [yuezk/vim-js](https://github.com/yuezk/vim-js) (**Recommended but not required**)
+
+    ```vim
+    Plug 'yuezk/vim-js'
+    Plug 'maxmellon/vim-jsx-pretty'
+    ```
+
+- if you want to highlight tsx files.
+
+    ```vim
+    Plug 'HerringtonDarkholme/yats.vim'
+    " or Plug 'leafgarland/typescript-vim'
+    Plug 'maxmellon/vim-jsx-pretty'
+    ```
+    
+- Execute command in vim:
+
+    ```vim
+    :so ~/.vimrc
+    :PlugInstall
+    ```
+
+### Using Vim8's package manager
+
+```sh
+mkdir -p ~/.vim/pack/vim-jsx-pretty/start
+cd $_
+git clone git@github.com:MaxMEllon/vim-jsx-pretty.git
+```
+
+#### For Neovim
+
+```sh
+mkdir -p ~/.local/share/nvim/site/vim-jsx-pretty/start
+cd $_
+git clone git@github.com:MaxMEllon/vim-jsx-pretty.git
+```
+
+## ⚠️ Work with `vim-polyglot`
+
+Since `vim-polyglot` has already embedded this plugin, if you have installed `vim-polyglot`, you don't need to install this plugin anymore. But the bugfix for this plugin may not ship in `vim-polyglot` in time.
+
+If you still want to use this plugin, make sure that you put this plugin **ahead** of `vim-polyglot`, and add `let g:polyglot_disabled = ['jsx']` to your `vimrc`.
+
+## Syntax group list
+
+|name|place|
+|---|---|
+|jsxElement| `<tag id="sample">text</tag>`<br />`~~~~~~~~~~~~~~~~~~~~~~~~~~~`|
+|jsxTag| `<tag id="sample">`<br />`~~~~~~~~~~~~~~~~~`|
+|jsxTagName| `<tag id="sample">`<br />`_~~~_____________`|
+|jsxComponentName| `<Capitals>`<br />`_~~~~~~~~_` |
+|jsxAttrib| `<tag id="sample">`<br />`_____~~__________`|
+|jsxEqual| `<tag id="sample">`<br />`_______~_________`|
+|jsxString| `<tag id="sample">`<br />`________~~~~~~~~_`|
+|jsxCloseTag| `</tag>`<br />`~~~~~~` |
+|jsxCloseString| `<tag />`<br />`_____~~` |
+|jsxDot| `<Parent.Child>`<br />`_______~______` |
+|jsxNamespace| `<foo:bar>`<br />`____~____` |
+|jsxPunct| `<tag></tag>`<br />`~___~~~___~` |
 
 
-DEFAULT RULES
--------------
+## Configuration
 
-lexima.vim provides some default rules to input pairs.
-(the cursor position is represented by `|`)
+|name|default|description|
+|---|---|---|
+|`g:vim_jsx_pretty_disable_js`|0|Disable the syntax highlighting for js files|
+|`g:vim_jsx_pretty_disable_tsx`|0|Disable the syntax highlighting for tsx files|
+|`g:vim_jsx_pretty_template_tags`|`['html', 'jsx']`|highlight JSX inside the tagged template string, set it to `[]` to disable this feature|
+|`g:vim_jsx_pretty_highlight_close_tag`|0|highlight the close tag separately from the open tag|
+|`g:vim_jsx_pretty_colorful_config`|0|colorful config flag|
 
-### Basic Rules
-If `g:lexima_enable_basic_rules` is `1`, the following rules are enabled.
-(default value: `1`)
-
-    Before        Input         After
-    ------------------------------------
-    |             (             (|)
-    ------------------------------------
-    |             "             "|"
-    ------------------------------------
-    ""|           "             """|"""
-    ------------------------------------
-    ''|           '             '''|'''
-    ------------------------------------
-    \|            [             \[|
-    ------------------------------------
-    \|            "             \"|
-    ------------------------------------
-    \|            '             \'|
-    ------------------------------------
-    I|            'm            I'm|
-    ------------------------------------
-    (|)           )             ()|
-    ------------------------------------
-    '|'           '             ''|
-    ------------------------------------
-    (|)           <BS>          |
-    ------------------------------------
-    '|'           <BS>          |
-    ------------------------------------
-
-and much more... (See `g:lexima#default_rules` at `autoload/lexima.vim`)
-
-### New Line Rules
-If `g:lexima_enable_newline_rules` is `1`, the following rules are enabled.
-(default value: `1`)
-
-    Before        Input         After
-    ------------------------------------
-    {|}           <CR>          {
-                                    |
-                                }
-    ------------------------------------
-    {|            <CR>          {
-                                    |
-                                }
-    ------------------------------------
-
-Same as `()` and `[]`.
-
-### Endwise Rules
-If `g:lexima_enable_endwise_rules` is `1`, the following rules are enabled.
-(default value: `1`)
-
-For example, in ruby filetype
-
-    Before        Input         After
-    --------------------------------------
-    if x == 42|   <CR>          if x == 42
-                                    |
-                                end
-    --------------------------------------
-    def foo()|    <CR>          def foo()
-                                    |
-                                end
-    --------------------------------------
-    bar.each do|  <CR>          bar.each do
-                                    |
-                                end
-    --------------------------------------
-
-and same as `module`, `class`, `while` and so on.
-
-In vim filetype, `function`, `if`, `while` ... rules are available.
-And also you can use in sh (zsh) such as `if`, `case`.
-
-
-CUSTOMIZATION
--------------
-lexima.vim provides highly customizable interface.
-You can define your own rule by using `lexima#add_rule()`.
-
+Colorful style (**vim-javascript only**)
 
 ```vim
-" Please add below in your vimrc
-call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
-call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
-call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
 ```
 
-You will get
+## Inspiration
 
-    Before  Input   After
-    ---------------------
-    |       $       $|$
-    ---------------------
-    $|$     $       $$|
-    ---------------------
-    $|$     <BS>    |
-    ---------------------
+- [vim-jsx](https://github.com/mxw/vim-jsx)
 
-These rules are enabled at only `latex` filetype.
-For more information, please see `:help lexima-customization`
+## LICENSE
 
-
-DOT REPEATABLE
---------------
-If you type `foo("bar`, you get
-```
-foo("bar")
-```
-
-and once you type `0.`, you finally get
-```
-foo("bar")foo("bar")
-```
+[MIT](./LICENSE.txt)

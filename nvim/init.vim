@@ -139,3 +139,6 @@ if executable('typescript-language-server')
         \ 'whitelist': ['typescript', 'typescriptreact'],
         \ })
 endif
+
+autocmd BufNewFile,BufRead *.tsx let b:tsx_ext_found = 1
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx

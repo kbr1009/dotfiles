@@ -717,6 +717,8 @@ g:neosnippet#expand_word_boundary	neosnippet.txt	/*g:neosnippet#expand_word_boun
 g:neosnippet#scope_aliases	neosnippet.txt	/*g:neosnippet#scope_aliases*
 g:neosnippet#snippets_directory	neosnippet.txt	/*g:neosnippet#snippets_directory*
 g:node_client_debug	coc.txt	/*g:node_client_debug*
+g:vim_jsx_pretty_colorful_config	vim-jsx-pretty-doc.txt	/*g:vim_jsx_pretty_colorful_config*
+g:vim_jsx_pretty_enable_jsx_highlight	vim-jsx-pretty-doc.txt	/*g:vim_jsx_pretty_enable_jsx_highlight*
 health#coc#check()	coc.txt	/*health#coc#check()*
 i_<Plug>(neosnippet_start_unite_snippet)	neosnippet.txt	/*i_<Plug>(neosnippet_start_unite_snippet)*
 lexima#add_rule()	lexima.txt	/*lexima#add_rule()*
@@ -873,6 +875,15 @@ v_coc-funcobj-a	coc.txt	/*v_coc-funcobj-a*
 v_coc-funcobj-i	coc.txt	/*v_coc-funcobj-i*
 v_coc-range-select	coc.txt	/*v_coc-range-select*
 v_coc-range-select-backward	coc.txt	/*v_coc-range-select-backward*
+vim-jsx-pretty	vim-jsx-pretty-doc.txt	/*vim-jsx-pretty*
+vim-jsx-pretty-about	vim-jsx-pretty-doc.txt	/*vim-jsx-pretty-about*
+vim-jsx-pretty-config	vim-jsx-pretty-doc.txt	/*vim-jsx-pretty-config*
+vim-jsx-pretty-detail	vim-jsx-pretty-doc.txt	/*vim-jsx-pretty-detail*
+vim-jsx-pretty-inspiration	vim-jsx-pretty-doc.txt	/*vim-jsx-pretty-inspiration*
+vim-jsx-pretty-install	vim-jsx-pretty-doc.txt	/*vim-jsx-pretty-install*
+vim-jsx-pretty-license	vim-jsx-pretty-doc.txt	/*vim-jsx-pretty-license*
+vim-jsx-pretty-thanks	vim-jsx-pretty-doc.txt	/*vim-jsx-pretty-thanks*
+vim-jsx-pretty-usage	vim-jsx-pretty-doc.txt	/*vim-jsx-pretty-usage*
 vim-lsp	vim-lsp.txt	/*vim-lsp*
 vim-lsp-asyncomplete	vim-lsp.txt	/*vim-lsp-asyncomplete*
 vim-lsp-autocommands	vim-lsp.txt	/*vim-lsp-autocommands*
