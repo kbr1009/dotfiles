@@ -29,7 +29,7 @@ export ZSH="/Users/reokobayashi/.oh-my-zsh"
 export LESS="-XFR"
 
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="nanotech"
 
 
 POWERLEVEL9K_CUSTOM_PYTHON="echo -n '\uf81f' Python"
